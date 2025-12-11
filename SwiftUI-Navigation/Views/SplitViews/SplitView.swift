@@ -18,14 +18,26 @@ struct SplitView: View {
                 NavigationLink(department.name, value: department.id)
             }.navigationTitle("Departments")
         } content: {
-            if let dId = departmentId {
-                let emp = employees.filter({e in e.departmentId == dId})
+            if let depId = departmentId {
+                let emp = employees.filter({e in e.departmentId == depId})
                 List(emp, selection: $description) { employee in
                     NavigationLink(employee.firstName, value: employee.description)
                 }.navigationTitle("Content")
             }
         } detail: {
-            
+            if let desc = description {
+                Text(desc)
+                    .padding(20)
+                    .background{
+                        RoundedRectangle(cornerRadius: 15)
+                            .fill(.white)
+                            .stroke(.blue, style: .init(lineWidth: 1))
+                            .containerRelativeFrame(.horizontal, count: 10, spacing: 15)
+                    }
+                    .shadow(radius: 5)
+            } else {
+                Text("Default Detail")
+            }
         }
     }
 }
