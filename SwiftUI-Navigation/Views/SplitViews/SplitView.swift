@@ -9,23 +9,21 @@ import SwiftUI
 
 struct SplitView: View {
     
-    @State private var departmentId: Int?
-    @State private var description: String?
+    @StateObject var viewModel = SplitViewModel(employees: employees, departments: departments)
     
     var body: some View {
         NavigationSplitView {
-            List(departments, selection: $departmentId) { department in
+            List(viewModel.departments, selection: $viewModel.selectedDepartmentId) { department in
                 NavigationLink(department.name, value: department.id)
-            }.navigationTitle("Departments")
-        } content: {
-            if let departmentId {
-                let emp = employees.filter({e in e.departmentId == departmentId})
-                List(emp, selection: $description) { employee in
-                    NavigationLink(employee.firstName, value: employee.description)
-                }.navigationTitle("Content")
             }
+            .navigationTitle("Departments")
+        } content: {
+            List(viewModel.filterEmployeesByDepartmentID, selection: $viewModel.selectedDescription) { employee in
+                NavigationLink(employee.firstName, value: employee.description)
+            }
+            .navigationTitle("Content")
         } detail: {
-            if let description {
+            if let description = viewModel.selectedDescription {
                 CardView(description: description)
             } else {
                 CardView()
