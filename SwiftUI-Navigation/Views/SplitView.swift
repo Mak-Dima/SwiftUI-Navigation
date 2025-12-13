@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplitView: View {
     
-    @StateObject var viewModel = SplitViewModel(employees: employees, departments: departments)
+    @ObservedObject var viewModel: SharedViewModel
     
     var body: some View {
         
@@ -51,5 +51,10 @@ struct SplitView: View {
 }
 
 #Preview {
-    SplitView()
+    let vm = SharedViewModel(
+        employees: employees,
+        departments: departments
+    )
+    
+    SplitView(viewModel: vm)
 }

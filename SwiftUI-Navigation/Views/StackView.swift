@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct StackView: View {
+    @ObservedObject var viewModel: SharedViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            NavigationLink("Next") {
+                
+            }
+        }
     }
 }
 
 #Preview {
-    StackView()
+    let vm = SharedViewModel(
+        employees: employees,
+        departments: departments
+    )
+    
+    StackView(viewModel: vm)
 }

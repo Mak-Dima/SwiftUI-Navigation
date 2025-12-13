@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
+        @StateObject var sharedViewModel = SharedViewModel(
+            employees: employees,
+            departments: departments
+        )
+        
         //  TabView.
         //  A view that switches between multiple child views using interactive user interface elements.
         //  To create a user interface with tabs, place Tabs in a TabView.
@@ -24,7 +29,7 @@ struct ContentView: View {
             //  The content for a tab and the tab’s associated tab item in a tab view.
             //  Can be created with label, system symbol and image.
             Tab("Split View", systemImage: "") {
-                SplitView()
+                SplitView(viewModel: sharedViewModel)
             }
             Tab("Stack", systemImage: "") {}
             Tab("Path", systemImage: "") {}
