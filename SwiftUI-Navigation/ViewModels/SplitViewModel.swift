@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SplitViewModel: ObservableObject {
+class SharedViewModel: ObservableObject {
     private var _employees: [Employee]
     private var _departments: [Department] = []
     
