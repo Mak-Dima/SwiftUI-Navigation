@@ -31,10 +31,10 @@ struct ContentView: View {
             Tab("Split View", systemImage: "") {
                 SplitView(viewModel: sharedViewModel)
             }
-            Tab("Stack", systemImage: "") {
+            Tab("Stack View", systemImage: "") {
                 StackView(viewModel: sharedViewModel)
             }
-            Tab("Path", systemImage: "") {}
+            Tab("Custom Path", systemImage: "") {}
         }
     }
 }
