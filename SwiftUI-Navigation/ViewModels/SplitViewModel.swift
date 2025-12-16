@@ -29,4 +29,8 @@ class SharedViewModel: ObservableObject {
     var departments: [Department] {
         return self._departments
     }
+    
+    func filterEmployeesByDepartmnetId(_ id: Int) -> [Employee] {
+        return self._employees.filter { $0.departmentId == id }
+    }
 }
