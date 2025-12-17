@@ -15,7 +15,7 @@ struct CustomPath: View {
     var body: some View {
         ForEach(viewModel.departments) { department in
             CustomNavigationLink(
-                fullName: department.name,
+                label: department.name,
                 navPath: self.$navPath,
                 value: department.id
             )

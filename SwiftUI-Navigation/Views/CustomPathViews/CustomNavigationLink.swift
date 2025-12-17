@@ -10,19 +10,19 @@ import SwiftUI
 struct CustomNavigationLink: View {
     
     var appendValue: AnyHashable
-    var fullName: String
+    var label: String
     
     @Binding var navPath: NavigationPath
     
-    init<P>(fullName: String, navPath: Binding<NavigationPath>, value: P) where P : Decodable, P : Encodable, P : Hashable {
+    init<P>(label: String, navPath: Binding<NavigationPath>, value: P) where P : Decodable, P : Encodable, P : Hashable {
         self._navPath = navPath
-        self.fullName = fullName
+        self.label = label
         self.appendValue = value
     }
     
     var body: some View {
         HStack(spacing: 16) {
-            Text(fullName)
+            Text(self.label)
             Spacer()
             Button("Show", systemImage: "info.circle"){
                 navPath.append(self.appendValue)
@@ -42,5 +42,5 @@ struct CustomNavigationLink: View {
     @Previewable @State var navPath = NavigationPath()
     let fName = "Dmytro Maksiutenko"
     
-    CustomNavigationLink(fullName: fName, navPath: $navPath, value: "id")
+    CustomNavigationLink(label: fName, navPath: $navPath, value: "id")
 }
