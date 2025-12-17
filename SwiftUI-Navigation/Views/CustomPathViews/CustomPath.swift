@@ -13,7 +13,14 @@ struct CustomPath: View {
     @State var navPath = NavigationPath()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(viewModel.departments) { department in
+            CustomNavigationLink(
+                fullName: department.name,
+                navPath: self.$navPath,
+                value: department.id
+            )
+        }
+        .padding(.horizontal, 20)
     }
 }
 
