@@ -34,7 +34,7 @@ struct ContentView: View {
             Tab("Stack View", systemImage: "") {
                 StackView(viewModel: sharedViewModel)
             }
-            Tab("Custom Router", systemImage: "") {}
+            Tab("Custom Path", systemImage: "") {}
         }
     }
 }
