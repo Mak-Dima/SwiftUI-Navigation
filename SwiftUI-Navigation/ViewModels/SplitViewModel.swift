@@ -9,7 +9,7 @@ import Foundation
 
 class SharedViewModel: ObservableObject {
     private var _employees: [Employee]
-    private var _departments: [Department] = []
+    private var _departments: [Department]
     
     @Published var selectedDepartmentId: Int?
     @Published var selectedDescription: String?
