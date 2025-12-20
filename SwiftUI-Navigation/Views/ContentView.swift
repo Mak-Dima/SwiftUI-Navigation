@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        @StateObject var sharedViewModel = SharedViewModel(
+        @StateObject var sharedViewModel = CustomPathViewModel(
             employees: employees,
             departments: departments
         )
@@ -34,7 +34,9 @@ struct ContentView: View {
             Tab("Stack View", systemImage: "") {
                 StackView(viewModel: sharedViewModel)
             }
-            Tab("Custom Path", systemImage: "") {}
+            Tab("Complex Path", systemImage: "") {
+                ComplexPathView(viewModel: sharedViewModel)
+            }
         }
     }
 }

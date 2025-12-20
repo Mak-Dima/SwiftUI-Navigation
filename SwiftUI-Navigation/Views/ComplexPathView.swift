@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomPathView: View {
+struct ComplexPathView: View {
     
     @StateObject var viewModel: CustomPathViewModel
     
@@ -62,5 +62,5 @@ struct CustomPathView: View {
         departments: departments
     )
     
-    CustomPathView(viewModel: vm)
+    ComplexPathView(viewModel: vm)
 }
