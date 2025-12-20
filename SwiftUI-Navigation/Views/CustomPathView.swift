@@ -12,18 +12,15 @@ struct CustomPathView: View {
     @StateObject var viewModel: CustomPathViewModel
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $viewModel.paths) {
             NavigationLink {
-                
-            } label: {
-                Button("Departments") {
-                    print("Departments")
+                List(viewModel.departments) { department in
+                   Text(department.name)
                 }
+            } label: {
+                Text("Departments")
             }
             
-            Button("Employees") {
-                print("Employees")
-            }
         }
     }
 }
