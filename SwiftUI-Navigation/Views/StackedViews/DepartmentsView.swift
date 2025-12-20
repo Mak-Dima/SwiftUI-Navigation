@@ -21,7 +21,7 @@ struct DepartmentsView: View {
 }
 #Preview {
     @Previewable @State var path = NavigationPath()
-    var vm = SharedViewModel(
+    let vm = SharedViewModel(
         employees: employees,
         departments: departments
     )
