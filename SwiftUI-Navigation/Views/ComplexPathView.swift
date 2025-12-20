@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ComplexPathView: View {
     
-    @StateObject var viewModel: CustomPathViewModel
+    @StateObject var viewModel: SharedViewModel
     
     var body: some View {
         NavigationStack(path: $viewModel.paths) {
@@ -57,7 +57,7 @@ struct ComplexPathView: View {
 }
 
 #Preview {
-    @Previewable @State var vm = CustomPathViewModel(
+    @Previewable @State var vm = SharedViewModel(
         employees: employees,
         departments: departments
     )

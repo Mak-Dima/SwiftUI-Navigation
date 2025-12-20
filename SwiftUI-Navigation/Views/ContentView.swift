@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        @StateObject var sharedViewModel = CustomPathViewModel(
+        @StateObject var sharedViewModel = SharedViewModel(
             employees: employees,
             departments: departments
         )
