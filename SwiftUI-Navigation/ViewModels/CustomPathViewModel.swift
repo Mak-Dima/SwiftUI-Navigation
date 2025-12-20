@@ -6,19 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CustomPathViewModel: SharedViewModel {
-    private var _paths: [String]
-    
+    @Published var _paths: NavigationPath
     @Published var currentPath: String?
     
-    var paths: [String] {
+    var paths: NavigationPath {
         get { _paths }
         set { _paths = newValue }
     }
     
     override init(employees: [Employee], departments: [Department]) {
-        self._paths = []
+        self._paths = NavigationPath()
         super.init(employees: employees, departments: departments)
     }
     

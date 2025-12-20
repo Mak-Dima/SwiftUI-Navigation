@@ -26,6 +26,10 @@ class SharedViewModel: ObservableObject {
         return []
     }
     
+    var employees: [Employee] {
+        return self._employees
+    }
+    
     var departments: [Department] {
         return self._departments
     }
